@@ -70,11 +70,13 @@
 
 @layer components {
   .glass {
-    @apply bg-card/60 backdrop-blur-xl border border-glass-border rounded-xl;
+    @apply bg-card/60 backdrop-blur-xl rounded-xl;
+    border: 1px solid hsl(var(--glass-border));
   }
 
   .glass-strong {
-    @apply bg-card/80 backdrop-blur-2xl border border-glass-border rounded-xl;
+    @apply bg-card/80 backdrop-blur-2xl rounded-xl;
+    border: 1px solid hsl(var(--glass-border));
   }
 
   .neon-text {

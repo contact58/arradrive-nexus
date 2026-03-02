@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 import { Car, Phone, Mail, MapPin } from "lucide-react";
 
+const navLinks = [
+  { to: "/", label: "Accueil" },
+  { to: "/a-propos", label: "À propos" },
+  { to: "/reserver", label: "Réserver" },
+  { to: "/blog", label: "Blog" },
+  { to: "/avis", label: "Avis Clients" },
+];
+
 const Footer = () => (
   <footer className="border-t border-border bg-card/40">
     <div className="max-w-7xl mx-auto px-6 py-16">
@@ -23,10 +31,11 @@ const Footer = () => (
         <div>
           <h4 className="font-display font-semibold text-foreground mb-4">Navigation</h4>
           <div className="flex flex-col gap-2">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">Accueil</Link>
-            <Link to="/reserver" className="text-sm text-muted-foreground hover:text-primary transition-colors">Réserver</Link>
-            <Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">Blog</Link>
-            <Link to="/avis" className="text-sm text-muted-foreground hover:text-primary transition-colors">Avis Clients</Link>
+            {navLinks.map((link) => (
+              <Link key={link.to} to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
 
@@ -46,9 +55,9 @@ const Footer = () => (
             <a href="tel:+33600000000" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Phone className="w-4 h-4" /> 06 00 00 00 00
             </a>
-            <a href="mailto:contact@chauffeurs-arras.fr" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail className="w-4 h-4" /> contact@chauffeurs-arras.fr
-            </a>
+            <span className="flex items-center gap-2">
+              <Mail className="w-4 h-4" /> Nous contacter
+            </span>
             <span className="flex items-center gap-2">
               <MapPin className="w-4 h-4" /> Arras, Pas-de-Calais
             </span>
@@ -61,9 +70,13 @@ const Footer = () => (
           © 2026 Les Chauffeurs d'Arras. Tous droits réservés.
         </p>
         <p className="text-xs text-muted-foreground">
-          <span className="sr-only">taxi arras - service de taxi à Arras, transport Arras Lesquin</span>
           Service de transport moderne et fiable
         </p>
+      </div>
+
+      {/* SEO invisible block */}
+      <div className="sr-only" aria-hidden="true">
+        Besoin d'un taxi Arras ? Les Chauffeurs d'Arras proposent un service de transport rapide vers la gare d'Arras, le centre-ville et l'aéroport de Lesquin. Meilleur prix garanti pour votre taxi Arras 24h/24 et 7j/7.
       </div>
     </div>
   </footer>

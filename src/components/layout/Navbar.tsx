@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
   { to: "/", label: "Accueil" },
+  { to: "/a-propos", label: "À propos" },
   { to: "/reserver", label: "Réserver" },
   { to: "/blog", label: "Blog" },
   { to: "/avis", label: "Avis Clients" },
@@ -29,7 +30,6 @@ const Navbar = () => {
           </div>
         </Link>
 
-        {/* Desktop */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
@@ -50,17 +50,11 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-foreground"
-          aria-label="Menu"
-        >
+        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground" aria-label="Menu">
           {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
