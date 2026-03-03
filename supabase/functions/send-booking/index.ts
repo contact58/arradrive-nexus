@@ -42,11 +42,9 @@ serve(async (req) => {
       throw new Error('BOOKING_RECIPIENT_EMAIL is not configured');
     }
 
-    const SUPABASE_URL = Deno.env.get('SUPABASE_URL');
-    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
-
-    if (!LOVABLE_API_KEY) {
-      throw new Error('LOVABLE_API_KEY is not configured');
+    const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
+    if (!RESEND_API_KEY) {
+      throw new Error('RESEND_API_KEY is not configured');
     }
 
     const emailHtml = `
@@ -87,7 +85,7 @@ serve(async (req) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
+        'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
         from: 'Les Chauffeurs d\'Arras <onboarding@resend.dev>',
