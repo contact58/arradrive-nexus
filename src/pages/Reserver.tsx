@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Clock, Users, Briefcase, Send, ArrowLeft, ArrowRight } from "lucide-react";
+import { MapPin, Calendar, Clock, Users, Briefcase, Send, ArrowLeft, ArrowRight, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
@@ -32,11 +33,24 @@ const Reserver = () => {
     return true;
   };
 
-  const handleSubmit = () => {
-    toast.success("Demande envoyée ! Nous vous recontacterons rapidement avec un devis.");
-    console.log("Booking request:", form);
-    setStep(0);
-    setForm({ pickup: "", destination: "", date: "", time: "", passengers: "1", luggage: "0", name: "", email: "", phone: "", notes: "" });
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async () => {
+    setSending(true);
+    try {
+      const { error } = await supabase.functions.invoke('send-booking', {
+        body: form,
+      });
+      if (error) throw error;
+      toast.success("Demande envoyée ! Nous vous recontacterons rapidement avec un devis.");
+      setStep(0);
+      setForm({ pickup: "", destination: "", date: "", time: "", passengers: "1", luggage: "0", name: "", email: "", phone: "", notes: "" });
+    } catch (err) {
+      console.error("Booking error:", err);
+      toast.error("Erreur lors de l'envoi. Veuillez réessayer.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputClass =
@@ -200,9 +214,11 @@ const Reserver = () => {
               ) : (
                 <button
                   onClick={handleSubmit}
-                  className="flex items-center gap-2 px-6 py-2.5 rounded-lg gradient-primary text-primary-foreground text-sm font-semibold transition-all hover:shadow-[0_0_30px_hsl(199_89%_48%/0.4)]"
+                  disabled={sending}
+                  className="flex items-center gap-2 px-6 py-2.5 rounded-lg gradient-primary text-primary-foreground text-sm font-semibold transition-all hover:shadow-[0_0_30px_hsl(199_89%_48%/0.4)] disabled:opacity-60"
                 >
-                  <Send className="w-4 h-4" /> Envoyer la demande
+                  {sending ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                  {sending ? "Envoi en cours..." : "Envoyer la demande"}
                 </button>
               )}
             </div>
