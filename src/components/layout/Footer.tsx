@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import { Car, Phone, Mail, MapPin } from "lucide-react";
 
 const navLinks = [
-  { to: "/", label: "Accueil" },
-  { to: "/a-propos", label: "À propos" },
-  { to: "/reserver", label: "Réserver" },
-  { to: "/blog", label: "Blog" },
-  { to: "/avis", label: "Avis Clients" },
-];
+{ to: "/", label: "Accueil" },
+{ to: "/a-propos", label: "À propos" },
+{ to: "/reserver", label: "Réserver" },
+{ to: "/blog", label: "Blog" },
+{ to: "/avis", label: "Avis Clients" }];
 
-const Footer = () => (
-  <footer className="border-t border-border bg-card/40">
+
+const Footer = () =>
+<footer className="border-t border-border bg-card/40">
     <div className="max-w-7xl mx-auto px-6 py-16">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
         <div className="md:col-span-1">
@@ -31,11 +31,11 @@ const Footer = () => (
         <div>
           <h4 className="font-display font-semibold text-foreground mb-4">Navigation</h4>
           <div className="flex flex-col gap-2">
-            {navLinks.map((link) => (
-              <Link key={link.to} to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+            {navLinks.map((link) =>
+          <Link key={link.to} to={link.to} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 {link.label}
               </Link>
-            ))}
+          )}
           </div>
         </div>
 
@@ -52,8 +52,9 @@ const Footer = () => (
         <div>
           <h4 className="font-display font-semibold text-foreground mb-4">Contact</h4>
           <div className="flex flex-col gap-3 text-sm text-muted-foreground">
-            <a href="tel:+33600000000" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Phone className="w-4 h-4" /> 06 00 00 00 00
+            <a href="tel:+33600000000" className="flex items-center gap-2 hover:text-primary transition-colors">06 09 50 15 57 
+
+            <Phone className="w-4 h-4" /> 06 00 00 00 00
             </a>
             <span className="flex items-center gap-2">
               <Mail className="w-4 h-4" /> Nous contacter
@@ -79,7 +80,6 @@ const Footer = () => (
         Besoin d'un taxi Arras ? Les Chauffeurs d'Arras proposent un service de transport rapide vers la gare d'Arras, le centre-ville et l'aéroport de Lesquin. Meilleur prix garanti pour votre taxi Arras 24h/24 et 7j/7.
       </div>
     </div>
-  </footer>
-);
+  </footer>;
 
 export default Footer;
