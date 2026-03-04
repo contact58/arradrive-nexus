@@ -9,6 +9,7 @@ import Blog from "./pages/Blog";
 import Avis from "./pages/Avis";
 import APropos from "./pages/APropos";
 import NotFound from "./pages/NotFound";
+import FloatingContactWidgets from "./components/FloatingContactWidgets";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/avis" element={<Avis />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <FloatingContactWidgets />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
