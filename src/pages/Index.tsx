@@ -47,8 +47,7 @@ const Index = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-sm font-medium tracking-widest uppercase text-primary mb-6">
-
-
+            RESERVATION URGENTE ? 06 09 50 15 57
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
