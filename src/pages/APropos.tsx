@@ -71,6 +71,9 @@ const APropos = () => (
             </motion.div>
           ))}
         </div>
+        <div className="sr-only" aria-hidden="true">
+          Taxi Arras à propos. Les Chauffeurs d'Arras, entreprise de taxi Arras locale. Taxi Arras professionnel, chauffeur privé Arras, VTC Arras, transport Arras Pas-de-Calais.
+        </div>
       </div>
     </div>
     <Footer />

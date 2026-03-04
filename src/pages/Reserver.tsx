@@ -225,6 +225,9 @@ const Reserver = () => {
           </motion.div>
         </div>
       </div>
+      <div className="sr-only" aria-hidden="true">
+        Réserver un taxi Arras en ligne. Taxi Arras réservation rapide, devis gratuit taxi Arras. Transport gare d'Arras, navette aéroport Lesquin. Taxi Arras tarif fixe et compétitif.
+      </div>
 
       <Footer />
     </div>
