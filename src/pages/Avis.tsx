@@ -89,6 +89,9 @@ const Avis = () => (
             </motion.div>
           ))}
         </div>
+        <div className="sr-only" aria-hidden="true">
+          Avis taxi Arras. Témoignages clients taxi Arras, meilleur taxi Arras recommandé. Les Chauffeurs d'Arras avis positifs, taxi Arras fiable et ponctuel.
+        </div>
       </div>
     </div>
     <Footer />

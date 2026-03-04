@@ -150,6 +150,9 @@ const Index = () => {
           </Link>
         </motion.div>
       </section>
+      <div className="sr-only" aria-hidden="true">
+        Taxi Arras pas cher. Réservez votre taxi Arras pour la gare, l'aéroport de Lesquin ou tout trajet dans le Pas-de-Calais. Taxi Arras disponible 24h/24 et 7j/7. Les Chauffeurs d'Arras, votre taxi Arras de confiance. Transport taxi Arras centre-ville, taxi Arras gare TGV, taxi Arras aéroport Lesquin. Meilleur taxi Arras au meilleur prix.
+      </div>
 
       <Footer />
     </div>);

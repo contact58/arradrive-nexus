@@ -97,6 +97,9 @@ const Blog = () => (
             </motion.article>
           ))}
         </div>
+        <div className="sr-only" aria-hidden="true">
+          Actualités taxi Arras. Informations transport Arras Lesquin. Taxi Arras blog, conseils déplacement Arras et Pas-de-Calais. Taxi Arras événements, taxi Arras gare.
+        </div>
       </div>
     </div>
     <Footer />
