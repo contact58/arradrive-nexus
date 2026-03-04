@@ -55,9 +55,6 @@ const Footer = () =>
             <a href="tel:+33609501557" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Phone className="w-4 h-4" /> 06 09 50 15 57
             </a>
-            <a href="mailto:leschauffeursdarras@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail className="w-4 h-4" /> leschauffeursdarras@gmail.com
-            </a>
             <span className="flex items-center gap-2">
               <MapPin className="w-4 h-4" /> Arras, Pas-de-Calais
             </span>
